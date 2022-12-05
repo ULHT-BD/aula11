@@ -1,13 +1,15 @@
 # aula11
-Nesta aula olhamos para junções horizontais como forma de obter conteúdo de mais de uma relação através de relações. Vemos exemplos de vários tipos de junções internas ```INNER JOIN``` e externas ```OUTER JOIN```.
-Falamos ainda sobre nested queries como forma de efetuar junções horizontais.
+Na aula passada olhámos para junções horizontais e como podemos obter conteúdo obtido a partir de várias tabelas, quando relacionado através de chaves estrangeiras, utilizando a cláusula ```JOIN```.
+Nesta aula vemos outra forma de realizar junções como podemos combinar resultados de operações sobre conjuntos e sobre outra junções verticais e como.
 Bom trabalho!
 
 [0. Requisitos](#0-requisitos)
 
-[1. Junção Horizontal](#1-junção-horizontal)
+[1. Junção Horizontal](#1-nested-queries)
 
-[2. Resoluções](#2-resoluções)
+[2. Operações UNION, INTERSECT e MINUS](#3-operações-union-intersect-e-minus)
+
+[3. Resoluções](#3-resoluções)
 
 [Bibliografia e Referências](#bibliografia-e-referências)
 
@@ -21,7 +23,7 @@ Caso já tenha o docker pode iniciá-lo usando o comando ```docker start mysgbd`
 
 Deve também ter o cliente DBeaver.
 
-## 1. Junção Horizontal
+## 1. Nested Queries
 A junção horizontal permite recuperar dados de várias relações em simultâneo a efetuando associações através de valores em chaves estrangeiras. Corresponde a efetuar um produto cartesiano seguido de uma seleção. Em SQL esta operacao e conseguida com recurso a clausula ```JOIN```.
 
 A juncao pode ser feita de varias formas: ```INNER JOIN``` (juncao interna) ou ```OUTER JOIN``` (juncao externa) a esquerda ou a direita.
@@ -83,14 +85,30 @@ Escreva o código SQL que permite obter:
 
 5. Disciplinas sem professores associados
 
+## 3. Operações UNION, INTERSECT e MINUS
+Em SQL podemos efetuar operações entre vários conjuntos. 
+![image](https://user-images.githubusercontent.com/32137262/197638351-749da169-af37-4809-b1e3-b0e8f4d3fc2f.png)
 
-## 2. Resoluções
-[Resolução dos exercícios em aula](https://github.com/ULHT-BD/aula09/blob/main/aula10_resolucao.sql)
+Exemplos:
+|Operador|Descrição|Exemplo|
+|--------|---------|-------|
+|UNION|Conjunto de tuplos que estão no primeiro e/ou no segundo conjunto, sem duplicados|Obter diferentes nomes de alunos e nomes de professores: ```SELECT nome FROM alunos UNION SELECT nome FROM professores;```|
+|UNION ALL|Conjunto de tuplos que estão no primeiro e/ou no segundo conjunto, incluindo duplicados|Obter nomes de alunos e nomes de professores mantendo repetições entre grupos: ```SELECT nome FROM alunos UNION ALL SELECT nome FROM professores;```|
+|INTERSECT|Conjunto de tuplos que existem simultaneamente no primeiro e no segundo conjuntos.|Obter nomes de alunos que também são nomes de professores: ```SELECT nome FROM alunos INTERSECT SELECT nome FROM professores;```|
+|EXCEPT (MINUS)|Conjunto de tuplos que estão no primeiro conjunto mas não no segundo conjunto|Obter nomes de alunos que não são nomes de professores: ```SELECT nome FROM alunos EXCEPT SELECT nome FROM professores;```|
 
-[Apoio Projeto - Remoção de Tuplos Duplicados](https://github.com/ULHT-BD/aula10/blob/main/apoio_projeto_remocao_duplicados.sql)
+### Exercícios
+Para cada uma das alíneas seguintes, escreva a query que permite obter:
+1. Uma única lista com os nomes próprios e os apelidos de todos os trabalhadores
+2. A lista de nomes próprios que sejam nome de pelo menos um trabalhador que recebe comissão e de um trabalhador que não recebe
+
+
+## 3. Resoluções
+[Resolução dos exercícios em aula](https://github.com/ULHT-BD/aula11/blob/main/aula11_resolucao.sql)
 
 ## Bibliografia e Referências
-* [Slides aula (+material extra)](https://github.com/ULHT-BD/aula10/blob/main/Aula10.pdf) 
+* [Slides aula (+material extra)](https://github.com/ULHT-BD/aula11/blob/main/Aula11.pdf) 
+* [Subqueries in mysql.com](https://dev.mysql.com/doc/refman/8.0/en/subqueries.html)
 
 
 ## Outros
