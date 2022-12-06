@@ -83,6 +83,7 @@ Considere a Base de Dados hr que usou nas aulas anteriores. Usando nested querie
 7. Quais os empregados que recebem o segundo salário mais elevado. 
 8. Quais os empregados (id primeiro nome e salario) que recebem acima da média e trabalham no mesmo departamento onde algum nome empregado contenha a letra 'J'.
 9. Quais os empregados (primeiro nome) que trabalham nos departamentos de United Kingdom.
+10. Quais os empregados (primeiro nome, último nome, salário e job id) que recebem acima da média de salários para a sua função.
 
 
 ## 3. Operações UNION, INTERSECT e MINUS
