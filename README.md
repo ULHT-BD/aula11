@@ -36,7 +36,39 @@ WHERE t1.id IN (
 );
 ```
 
+As vantagens na utilização de nested queries são o melhor isolamento das diferentes partes da query, alternativa mais simples a operações JOIN muito complexas e logo com maior facilidade de leitura. No entanto, estas queries são normalmente muito dificeis de otimizar pelos Sistemas de Gestão de Base de Dados pelo que podem comprometer a performance.
 
+A query interna pode aparecer em várias localizações da query externa, exemplo
+
+``` sql
+SELECT 
+  nome, 
+  (SELECT nome FROM t2 WHERE id = 1) nome_t2 
+FROM t1;
+```
+
+
+``` sql
+SELECT 
+  * 
+FROM 
+  (SELECT * FROM t1 WHERE id > 10) t2
+WHERE id < 20;
+```
+
+
+``` sql
+SELECT * FROM t1 
+WHERE t1.id IN (
+  SELECT t2.id FROM t2);
+```
+
+As palavras chave ```ALL```, ```ANY``` ou ```IN``` podem ser usadas para filtrar conjuntos de tuplos com as operações comparação existentes:
+|Operador|Descrição|Exemplo|
+|--------|---------|-------|
+|ALL|Necessita satisfazer a expressão para todos os tuplos resultado da subquery|``` SELECT eid	FROM inscrito WHERE nota > ALL(SELECT nota FROM inscritos WHERE uid = 222); ```|
+|ANY|Necessita satisfazer a expressão para pelo menos um tuplo resultado da subquery|``` SELECT nome	FROM estudante	WHERE	eid = ANY(SELECT eid	FROM inscrito	WHERE uid=215);```|
+|IN|Equivalente a ‘=ANY()’ (valor de atributo contido na subquery)|```SELECT eid, nome	FROM	estudante,	WHERE eid IN (SELECT MAX(eid)	FROM inscritos);```|
 
 
 ### Exercícios
@@ -67,8 +99,9 @@ Exemplos:
 
 ### Exercícios
 Para cada uma das alíneas seguintes, escreva a query que permite obter:
-1. Uma única lista com os nomes próprios e os apelidos de todos os trabalhadores
-2. A lista de nomes próprios que sejam nome de pelo menos um trabalhador que recebe comissão e de um trabalhador que não recebe
+1. Uma única lista com os nomes próprios dos trabalhadores que trabalham em departamentos de it e dos apelidos dos trabalhadores de Marketing.
+2. A lista de nomes próprios que coexistam no departamentos de IT e de Finance.
+3. A lista de nomes próprios apenas de trabalhadores não managers, i.e. excluindo os nomes de managers.
 
 
 ## 3. Resoluções
