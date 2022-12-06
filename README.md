@@ -5,7 +5,7 @@ Bom trabalho!
 
 [0. Requisitos](#0-requisitos)
 
-[1. Junção Horizontal](#1-nested-queries)
+[1. Nested Queries](#1-nested-queries)
 
 [2. Operações UNION, INTERSECT e MINUS](#3-operações-union-intersect-e-minus)
 
@@ -24,66 +24,26 @@ Caso já tenha o docker pode iniciá-lo usando o comando ```docker start mysgbd`
 Deve também ter o cliente DBeaver.
 
 ## 1. Nested Queries
-A junção horizontal permite recuperar dados de várias relações em simultâneo a efetuando associações através de valores em chaves estrangeiras. Corresponde a efetuar um produto cartesiano seguido de uma seleção. Em SQL esta operacao e conseguida com recurso a clausula ```JOIN```.
-
-A juncao pode ser feita de varias formas: ```INNER JOIN``` (juncao interna) ou ```OUTER JOIN``` (juncao externa) a esquerda ou a direita.
-
-A sintaxe geral e:
+Nested queries ou subqueries consistem em queries onde um SELECT contém outro SELECT. Podemos ter vários nested queries com vários níveis de SELECT encadeados, por exemplo
 
 ``` sql
-SELECT t1.col1, t1.col2, t2.col3, t2.col4 
-FROM tabela1 t1
-  [LEFT/RIGHT] [INNER/OUTER] JOIN tabela2 t2 ON t1.col1 = t2.col3
+SELECT * FROM t1 
+WHERE t1.id IN (
+  SELECT t2.id FROM t2 
+  WHERE t2.id IN (
+    SELECT t3.id FROM t3
+  )
 );
 ```
 
-Por exemplo,
-
-<img width="759" alt="image" src="https://user-images.githubusercontent.com/32137262/204396892-a62fe137-447b-4958-a727-980d4bbd969c.png">
-
-Podemos obter informação sobre veiculos (matricula, marca) e respetivos proprietarios (nif e nome) usando a query:
-
-``` sql
-SELECT
-  v.matricula, v.marca, p.nif, p.nome
-FROM veiculo v JOIN proprietário p ON v.nif = p.nif;
-```
-
-O resultado da execução da query é:
-
-<img width="602" alt="image" src="https://user-images.githubusercontent.com/32137262/204397360-22b5e0ab-5254-4fe5-b009-ec46d6ce144f.png">
-
-
-O quadro seguinte resume os varios tipos de ```JOIN```.
-
-<img width="848" alt="image" src="https://user-images.githubusercontent.com/32137262/204397593-6118a241-1d2b-430b-861f-a0c0f901a92c.png">
-
-Vimos nas aulas anteriores que podemos usar a clausula ```DELETE``` para eliminar tuplos da nossa relacao. O ```DELETE JOIN``` permite remover de uma ou várias relações de acordo com uma operação ```JOIN```
-
-``` sql
-DELETE T1, T2
-FROM T1
-INNER JOIN T2 ON T1.key = T2.key
-WHERE condition;
-```
-
 ### Exercícios
-Considere a Base de Dados seguinte:
+Considere a Base de Dados hr que usou nas aulas anteriores. Usando nested queries, escreva a query SQL que permite responder cada uma das seguintes questões:
 
-Disciplina(id, nome, carga_horaria, prof_id), prof_id:FK(Professor)
-
-Professor(nif, nome, telefone, email) 
-
-Escreva o código SQL que permite obter:
-1. Criar as relações Disciplina e Professor e inserir alguns tuplos que permitam testar as queries seguintes 
-
-2. Nome das disciplinas (e.g. Fundamentos de Programação, Programação I, etc) cuja carga horário é superior a 20h
-
-3. Informação de id e nome de disciplinas e respetivos professores
-
-4. Professores de disciplinas com carga horária superior a 40h
-
-5. Disciplinas sem professores associados
+1. Quais os empregados (primeiro nome e último nome) que recebem um salário superior ao empregado cujo id é 163
+2. Quais os empregados (primeiro nome, último nome, departamento id e job id) que têm o mesmo cargo que o empregado cujo id é 169
+3. Quais os empregados (primeiro nome, último nome, salário e departamento id) que recebem salário igual ao salário mínimo de algum departamento.
+4. Quais os empregados (id, primeiro nome, último nome) dos empregados que ganham acima do salário médio
+5. 
 
 ## 3. Operações UNION, INTERSECT e MINUS
 Em SQL podemos efetuar operações entre vários conjuntos. 
