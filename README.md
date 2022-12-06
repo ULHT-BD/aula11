@@ -36,14 +36,22 @@ WHERE t1.id IN (
 );
 ```
 
+
+
+
 ### Exercícios
 Considere a Base de Dados hr que usou nas aulas anteriores. Usando nested queries, escreva a query SQL que permite responder cada uma das seguintes questões:
 
 1. Quais os empregados (primeiro nome e último nome) que recebem um salário superior ao empregado cujo id é 163
-2. Quais os empregados (primeiro nome, último nome, departamento id e job id) que têm o mesmo cargo que o empregado cujo id é 169
-3. Quais os empregados (primeiro nome, último nome, salário e departamento id) que recebem salário igual ao salário mínimo de algum departamento.
-4. Quais os empregados (id, primeiro nome, último nome) dos empregados que ganham acima do salário médio
-5. 
+2. Quais os empregados (primeiro nome, último nome, salário e departamento id) que recebem salário igual ao salário mínimo de algum departamento.
+3. Quais os empregados (id, primeiro nome, último nome) dos empregados que ganham acima do salário médio
+4. Quais os empregados (primeiro nome, departamento id, job id e nome do departamento) dos empregados que trabalham no departamento Finance.
+5. Quais os empregados cujo salário está acima da média mas abaixo de 10000.
+6. Quais os empregados que não trabalham nos departamentos dos managers cujo id é entre 100 e 200.
+7. Quais os empregados que recebem o segundo salário mais elevado. 
+8. Quais os empregados (id primeiro nome e salario) que recebem acima da média e trabalham no mesmo departamento onde algum nome empregado contenha a letra 'J'.
+9. Quais os empregados (primeiro nome) que trabalham nos departamentos de United Kingdom.
+
 
 ## 3. Operações UNION, INTERSECT e MINUS
 Em SQL podemos efetuar operações entre vários conjuntos. 
