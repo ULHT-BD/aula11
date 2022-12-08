@@ -7,9 +7,11 @@ Bom trabalho!
 
 [1. Nested Queries](#1-nested-queries)
 
-[2. Operações UNION, INTERSECT e MINUS](#3-operações-union-intersect-e-minus)
+[2. Operações UNION, INTERSECT e MINUS](#2-operações-union-intersect-e-minus)
 
-[3. Resoluções](#3-resoluções)
+[3. Trabalho de Casa](#3-trabalho-de-casa)
+
+[4. Resoluções](#4-resoluções)
 
 [Bibliografia e Referências](#bibliografia-e-referências)
 
@@ -86,7 +88,7 @@ Considere a Base de Dados hr que usou nas aulas anteriores. Usando nested querie
 10. Quais os empregados (primeiro nome, último nome, salário e job id) que recebem acima da média de salários para a sua função.
 
 
-## 3. Operações UNION, INTERSECT e MINUS
+## 2. Operações UNION, INTERSECT e MINUS
 Em SQL podemos efetuar operações entre vários conjuntos. 
 ![image](https://user-images.githubusercontent.com/32137262/197638351-749da169-af37-4809-b1e3-b0e8f4d3fc2f.png)
 
@@ -105,7 +107,17 @@ Para cada uma das alíneas seguintes, escreva a query que permite obter:
 3. A lista de nomes próprios apenas de trabalhadores não managers, i.e. excluindo os nomes de managers.
 
 
-## 3. Resoluções
+## 3. Trabalho de Casa
+Nesta aula grande parte dos alunos não conseguiram terminar os exercícios propostos. Assim o trabalho de casa serão os 3 últimos exercícios sobre subqueries (1.8, 1.9 e 1.10):
+
+8. Quais os empregados (id primeiro nome e salario) que recebem acima da média e trabalham no mesmo departamento onde algum nome empregado contenha a letra 'J'.
+
+9. Quais os empregados (primeiro nome) que trabalham nos departamentos de United Kingdom.
+
+10. Quais os empregados (primeiro nome, último nome, salário e job id) que recebem acima da média de salários para a sua função.
+
+
+## 4. Resoluções
 [Resolução dos exercícios em aula](https://github.com/ULHT-BD/aula11/blob/main/aula11_resolucao.sql)
 
 ## Bibliografia e Referências
