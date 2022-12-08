@@ -116,6 +116,9 @@ Nesta aula grande parte dos alunos não conseguiram terminar os exercícios prop
 
 10. Quais os empregados (primeiro nome, último nome, salário e job id) que recebem acima da média de salários para a sua função.
 
+Bom trabalho!
+
+NOTA: submeta a sua resposta ao trabalho de casa no moodle contendo as queries que respondem às questões num script sql. O ficheiro de texto com o nome TPC_a11_[N_ALUNO].sql (exemplo: TPC_a11_12345.sql para o aluno número 12345).
 
 ## 4. Resoluções
 [Resolução dos exercícios em aula](https://github.com/ULHT-BD/aula11/blob/main/aula11_resolucao.sql)
