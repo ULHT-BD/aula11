@@ -121,7 +121,7 @@ Bom trabalho!
 NOTA: submeta a sua resposta ao trabalho de casa no moodle contendo as queries que respondem às questões num script sql. O ficheiro de texto com o nome TPC_a11_[N_ALUNO].sql (exemplo: TPC_a11_12345.sql para o aluno número 12345).
 
 ## 4. Resoluções
-[Resolução dos exercícios em aula](https://github.com/ULHT-BD/aula11/blob/main/aula11_resolucao.sql)
+[Resolução dos exercícios em aula](https://github.com/ULHT-BD/aula11/blob/main/aula11_resolucao_stpc.sql)
 
 ## Bibliografia e Referências
 * [Slides aula (+material extra)](https://github.com/ULHT-BD/aula11/blob/main/Aula11.pdf) 
